@@ -1,7 +1,9 @@
 name: Manually trigger an Azure Machine Learning job
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   train:
@@ -15,7 +17,10 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - name: Trigger ml job
-      run: az ml job create --file src/job.yml -g rg-100-dp -w ml-workspace-100
+    - name: Placeholder
+      run: |
+        echo "Will update here later 👾"
+    # - name: Trigger ml job
+    #   run: az ml job create --file src/job.yml -g rg-100-dp -w ml-workspace-100
 
 
