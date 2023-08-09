@@ -20,6 +20,16 @@ jobs:
     - name: Placeholder
       run: |
         echo "Will update here later 👾"
+    - name: Use Python version 3.8
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+    - name: Install Flake8
+      run: |
+        python -m pip install flake8
+    - name: Run linting tests
+      run: | 
+        flake8 src/model/
     # - name: Trigger ml job
     #   run: az ml job create --file src/job.yml -g rg-100-dp -w ml-workspace-100
 
